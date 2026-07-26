@@ -1,123 +1,166 @@
-# MEFV Variant Analysis Report
+# MEFV Varyant Analizi Raporu
 
-**Sample:** SRR31325587
-**Technology:** Oxford Nanopore (ONT), long-read
-**Reference:** GRCh38 (hg38)
-**Report date:** 2026-07-26
-
----
-
-## 1. Summary
-
-Nanopore sequencing data from sample SRR31325587 was processed through a
-MEFV-focused variant analysis workflow. Reads were aligned to the GRCh38
-reference genome, followed by variant calling and functional annotation.
-
-A c.715C>T (p.Arg239*) change introducing a premature termination codon
-was identified in MEFV at chr16:3254353. The variant is heterozygous and
-supported by 88X read depth.
-
-Although this is a high-impact nonsense change, loss of function is not
-an established disease mechanism for MEFV. The variant is therefore
-classified as a **variant of uncertain significance (VUS)**.
+**Örnek:** SRR31325587
+**Teknoloji:** Oxford Nanopore (ONT), uzun okuma
+**Referans:** GRCh38 (hg38)
+**Rapor tarihi:** 2026-07-26
 
 ---
 
-## 2. Methods
+## 1. Özet
 
-| Step | Tool | Version |
+SRR31325587 örneğine ait Nanopore dizileme verisi, MEFV geni odaklı bir
+varyant analizi iş akışından geçirilmiştir. Okumalar GRCh38 referans
+genomuna hizalanmış, varyant çağırma ve fonksiyonel anotasyon
+gerçekleştirilmiştir.
+
+MEFV geninde chr16:3254353 konumunda, protein düzeyinde erken sonlanma
+kodonu oluşturan c.715C>T (p.Arg239*) değişimi saptanmıştır. Varyant
+heterozigot durumda ve 88X okuma derinliği ile desteklenmektedir.
+
+Değişim yüksek etkili bir anlamsız (nonsense) varyant olmakla birlikte,
+MEFV için yerleşik hastalık mekanizması fonksiyon kaybı olmadığından
+**belirsiz öneme sahip varyant (VUS)** olarak sınıflandırılmıştır.
+
+---
+
+## 2. Yöntem
+
+| Adım | Araç | Sürüm |
 |---|---|---|
-| Data retrieval | SRA Toolkit (prefetch, fasterq-dump) | — |
-| Quality control | NanoPlot | 1.47.1 |
-| Alignment | minimap2 (-ax map-ont) | 2.30-r1287 |
-| BAM processing | samtools | 1.23.1 |
-| Variant calling | Longshot | 0.4.3 |
-| Filtering | bcftools | 1.23.1 |
-| Annotation | snpEff (database GRCh38.99) | 5.3a |
-| Visualization | IGV | — |
+| Veri çekme | SRA Toolkit (prefetch, fasterq-dump) | — |
+| Kalite kontrol | NanoPlot | 1.47.1 |
+| Hizalama | minimap2 (-ax map-ont) | 2.30-r1287 |
+| BAM işleme | samtools | 1.23.1 |
+| Varyant çağırma | Longshot | 0.4.3 |
+| Filtreleme | bcftools | 1.23.1 |
+| Anotasyon | snpEff (veritabanı GRCh38.99) | 5.3a |
+| Görselleştirme | IGV | — |
 
-Variant files were processed in the following order: raw Longshot output
-(`SRR31325587.vcf`) → chromosome naming adjusted (`.chr.vcf`) → snpEff
-input (`.hg38.vcf`) → final annotated file (`.ann.vcf`). Findings in this
-report are based on the annotated file.
+Varyant dosyaları şu sırayla işlenmiştir: Longshot ham çıktısı
+(`SRR31325587.vcf`) → kromozom isimlendirmesi düzenlenmiş sürüm
+(`.chr.vcf`) → snpEff girdisi (`.hg38.vcf`) → anote edilmiş nihai dosya
+(`.ann.vcf`). Rapordaki bulgular `.ann.vcf` dosyasına dayanmaktadır.
 
 ---
 
-## 3. Finding
+## 3. Bulgu
 
-| Field | Value |
+| Alan | Değer |
 |---|---|
-| Gene | MEFV |
-| Genomic position | chr16:3254353 (GRCh38) |
-| Genomic change | G>A |
-| Coding | c.715C>T |
-| Protein | p.Arg239* |
-| Variant type | stop_gained |
-| snpEff impact | HIGH |
-| Genotype | Heterozygous (0/1) |
-| Read depth | 88X |
-| Alternate allele fraction | [add VAF from VCF] |
+| Gen | MEFV (ENSG00000103313) |
+| Transkript | ENST00000219596.5 (Ensembl 99, protein_coding) |
+| Genomik konum | chr16:3254353 (GRCh38) |
+| Genomik değişim | G>A |
+| Kodlama düzeyi | c.715C>T |
+| Protein düzeyi | p.Arg239* (781 aa proteinde 239. kodon) |
+| Ekzon | 2/10 |
+| Varyant tipi | stop_gained |
+| snpEff etki sınıfı | HIGH |
+| Genotip | Heterozigot (0/1) |
+| Okuma derinliği | 88X |
+| Alel dağılımı | AD 51,26 (referans, alternatif) |
+| Alternatif alel oranı | 0,34 |
+| Genotip kalitesi | GQ 70 |
+| Varyant kalitesi | QUAL 70,0 (PASS) |
 
-MEFV lies on the minus strand, so the genomic G>A change corresponds to
-C>T at the coding level, converting the arginine codon at position 239
-(CGA) into a stop codon (TGA).
+MEFV geni eksi iplikte yer aldığından, genomik düzeydeki G>A değişimi
+kodlama dizisinde C>T olarak karşılık bulur. Bu değişim 239. kodondaki
+arginin kodonunu (CGA) durdurma kodonuna (TGA) dönüştürmektedir.
 
-The variant was inspected in IGV; the alignment snapshot is provided in
-`figures/igv_snapshotMEVF16.png`.
-
----
-
-## 4. Interpretation
-
-The identified change is a nonsense variant truncating the pyrin protein
-from residue 239 onward. As it lies in exon 2, well upstream of the final
-exon-exon junction, the transcript is predicted to undergo nonsense-
-mediated decay (NMD), with no protein expected from the affected allele.
-
-This observation does not by itself imply pathogenicity. The established
-disease mechanism for MEFV-related Familial Mediterranean Fever (FMF) is
-not loss of function; known pathogenic variants are predominantly
-missense changes in exon 10 that lead to pyrin hyperactivation (M694V,
-V726A, M680I). Truncating variants have not been established as a cause
-of the FMF phenotype.
-
-Accordingly, the ACMG/AMP PVS1 criterion was not applied, as it requires
-loss of function to be a known disease mechanism for the gene in
-question.
-
-FMF is also predominantly autosomal recessive. A single heterozygous
-allele is not diagnostic in the absence of clinical findings and a second
-pathogenic allele.
-
-**Classification: Variant of uncertain significance (VUS)**
+Varyant IGV ile görsel olarak incelenmiş, hizalama görüntüsü
+`figures/igv_snapshotMEVF16.png` dosyasında sunulmuştur.
 
 ---
 
-## 5. Limitations
+## 4. Çağrı Kalitesi Değerlendirmesi
 
-- Targeted analysis of a single sample.
-- The variant call was not confirmed by an orthogonal method (Sanger
-  sequencing).
-- Single-nucleotide changes in Nanopore data, particularly within
-  homopolymer regions, require careful evaluation.
-- gnomAD population frequency and ClinVar/INFEVERS records were not
-  queried in this study.
-- No family segregation analysis was performed.
+Varyant PASS filtresini geçmiş olmakla birlikte, çağrıyı destekleyen
+kanıtlar sınırlıdır ve dikkatli değerlendirilmelidir.
+
+**Belirsizliği artıran gözlemler:**
+
+- Alternatif alel oranı 0,34 olup, heterozigot bir çağrıda beklenen
+  ~0,50 değerinin altındadır.
+- Toplam 88 okumadan 77'si bir alele atanmış, 11 okuma belirsiz
+  kalmıştır (AM=11).
+- Alternatif aleli destekleyen okumaların ortalama kalitesi düşüktür
+  (AQ=12,25).
+- Bölgedeki uyumsuzluk oranları yüksektir (MF=0,221; MB=0,227).
+
+**Çağrıyı destekleyen gözlemler:**
+
+- Haritalama kalitesi tüm eşiklerde kusursuzdur (MQ10–MQ50 = 1,00).
+- Dizi bağlamı (CTTCTAGGTC[G]CATCTTTCCC) homopolimer içermemektedir; bu
+  nedenle varyant, Nanopore verisinin en sık hata tipine denk
+  gelmemektedir.
+
+Bu değerler bir arada değerlendirildiğinde, varyantın ortogonal bir
+yöntemle doğrulanması bir öneri değil, gerekliliktir.
 
 ---
 
-## 6. Suggested Next Steps
+## 5. Yorum
 
-1. Sanger confirmation of the variant
-2. gnomAD allele frequency lookup
-3. ClinVar and INFEVERS database search
-4. Screening of MEFV exon 10 for common pathogenic variants
-5. Family segregation analysis if clinical findings are present
+Saptanan değişim, pirin proteininin 239. aminoasitten itibaren
+kesilmesine yol açan bir anlamsız varyanttır. Varyant ekzon 2'de yer
+aldığı ve son ekzon-ekzon bağlantısının belirgin biçimde yukarısında
+kaldığı için, transkriptin anlamsız kodon aracılı yıkıma (NMD) uğraması
+beklenir. Bu durumda beklenen sonuç, ilgili alelden protein
+üretilmemesidir.
+
+snpEff'in LOF ve NMD etiketleri, gen için tanımlı 14 transkriptten
+yalnızca birinin (%7) bu varyanttan etkilendiğini bildirmektedir; kalan
+transkriptlerde değişim intronik bölgeye düşmektedir. Bu durum,
+varyantın gen ürünü üzerindeki toplam etkisini sınırlayan ek bir
+belirsizlik kaynağıdır.
+
+Bununla birlikte, bu gözlemlerin doğrudan patojenite anlamına gelmediğini
+vurgulamak gerekir. MEFV ile ilişkili Ailevi Akdeniz Ateşi'nde (FMF)
+tanımlanmış hastalık mekanizması fonksiyon kaybı değildir; bilinen
+patojenik varyantlar ağırlıklı olarak ekzon 10'da yer alan ve pirin
+proteininin aşırı aktivasyonuna yol açan yanlış anlamlı değişimlerdir
+(M694V, V726A, M680I). Trunkasyona yol açan varyantların FMF fenotipi
+ile ilişkisi yerleşik değildir.
+
+Bu nedenle ACMG/AMP kriterlerinden PVS1 uygulanmamıştır; söz konusu
+kriter, kayıp-fonksiyonun ilgili gen için bilinen hastalık mekanizması
+olmasını şart koşar.
+
+Ek olarak FMF çoğunlukla otozomal resesif kalıtım gösterir. Tek
+heterozigot alelin varlığı, klinik bulgu ve ikinci bir patojenik alel
+olmaksızın tanı koydurucu değildir.
+
+**Sınıflandırma: Belirsiz öneme sahip varyant (VUS)**
 
 ---
 
-## 7. Scope
+## 6. Sınırlılıklar
 
-This work is for educational and research purposes. It is not intended
-for clinical diagnosis, screening, or treatment decisions. Clinical
-interpretation should be performed by a medical genetics specialist.
+- Analiz tek örnek üzerinde yürütülmüş hedefli bir çalışmadır.
+- Varyant çağrısı ortogonal bir yöntemle (Sanger dizileme)
+  doğrulanmamıştır.
+- Alternatif alel oranı beklenen heterozigot aralığın altındadır.
+- Nanopore verisinde tek nükleotid değişimleri dikkatli
+  değerlendirilmelidir.
+- gnomAD popülasyon frekansı ve ClinVar/INFEVERS kayıtları bu çalışma
+  kapsamında sorgulanmamıştır.
+- Aile segregasyon analizi yapılmamıştır.
+
+---
+
+## 7. Önerilen Sonraki Adımlar
+
+1. Varyantın Sanger dizileme ile doğrulanması
+2. gnomAD alel frekansının sorgulanması
+3. ClinVar ve INFEVERS veritabanlarında kayıt aranması
+4. MEFV ekzon 10'un yaygın patojenik varyantlar açısından incelenmesi
+5. Klinik bulgu varlığında aile segregasyon analizi
+
+---
+
+## 8. Kapsam Notu
+
+Bu çalışma eğitim ve araştırma amaçlıdır. Klinik tanı, tarama veya
+tedavi kararı için kullanılamaz. Klinik değerlendirme, tıbbi genetik
+uzmanı tarafından yapılmalıdır.
