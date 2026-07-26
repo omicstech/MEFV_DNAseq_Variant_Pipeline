@@ -1,0 +1,12 @@
+raw_fastq/
+alignment/
+reference/
+qc/
+*.bam
+*.bai
+final_project/
+*.mmi
+*.fa
+*.fai
+*.gtf
+*.vcf.gz
