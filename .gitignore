@@ -1,13 +1,14 @@
 raw_fastq/
 alignment/
 reference/
-qc/
+*.sam
 *.bam
 *.bai
-final_project/
+*.sra
+*.fastq
 *.mmi
 *.fa
 *.fai
 *.gtf
 *.vcf.gz
-final_project/
+

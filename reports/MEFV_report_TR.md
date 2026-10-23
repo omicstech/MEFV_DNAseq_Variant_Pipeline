@@ -38,8 +38,8 @@ MEFV için yerleşik hastalık mekanizması fonksiyon kaybı olmadığından
 | Görselleştirme | IGV | — |
 
 Varyant dosyaları şu sırayla işlenmiştir: Longshot ham çıktısı
-(`SRR31325587.vcf`) → kromozom isimlendirmesi düzenlenmiş sürüm
-(`.chr.vcf`) → snpEff girdisi (`.hg38.vcf`) → anote edilmiş nihai dosya
+(`SRR31325587.vcf`) → yalnızca chr16 kromozom adı değiştirilmiş ara sürüm
+(`.chr.vcf`) → tüm kromozom adları Ensembl biçimine çevrilmiş snpEff girdisi (`.hg38.vcf`) → anote edilmiş nihai dosya
 (`.ann.vcf`). Rapordaki bulgular `.ann.vcf` dosyasına dayanmaktadır.
 
 ---
