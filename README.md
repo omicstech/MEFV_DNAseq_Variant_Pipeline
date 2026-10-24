@@ -1,59 +1,51 @@
+cat > README.md << 'EOF'
+# MEFV DNA-seq Variant Analysis Pipeline
 
-# MEFV_DNAseq_Variant_Pipeline
+Targeted variant analysis of the MEFV gene from Oxford Nanopore (ONT) long-read sequencing data (sample SRR31325587), aligned to GRCh38.
 
-## Project Overview
+This project is for educational and research purposes only. It cannot be used for clinical diagnosis, screening, or treatment decisions.
 
-This project presents an end-to-end DNA sequencing (DNA-Seq) variant analysis workflow using the MEFV dataset. The pipeline includes quality control, reference-based alignment, variant calling, annotation, and visualization of genomic variants.
+## Result
 
-## Objectives
+A heterozygous stop-gained variant, c.715C>T (p.Arg239*), was found in MEFV at chr16:3254353 (88X depth). Loss of function is not the established disease mechanism for MEFV, so the variant was classified as a **variant of uncertain significance (VUS)**. The call has limited support (alternate allele fraction 0.34) and needs orthogonal validation, e.g. Sanger sequencing.
 
-* Process raw sequencing data.
-* Identify genomic variants in the MEFV gene.
-* Annotate and interpret detected variants.
-* Visualize variants using IGV.
-* Build a reproducible bioinformatics workflow.
+Full details: [reports/MEFV_report_EN.md](reports/MEFV_report_EN.md) (English) and [reports/MEFV_report_TR.md](reports/MEFV_report_TR.md) (Turkish).
 
-## Pipeline
+![IGV view of the variant](figures/igv_snapshotMEVF16.png)
 
-1. Data acquisition
-2. Quality control (FastQC, MultiQC)
-3. Reference genome preparation (hg38)
-4. Read alignment (BWA-MEM)
-5. BAM processing (samtools)
-6. Variant calling
-7. Variant annotation (snpEff)
-8. Visualization (IGV)
+## Workflow
 
-## Key Result
+| Step | Tool | Version |
+|---|---|---|
+| Data retrieval | SRA Toolkit (prefetch, fasterq-dump) | 3.4.1 |
+| Quality control | NanoPlot | 1.47.1 |
+| Alignment | minimap2 (-ax map-ont) | 2.30 |
+| BAM processing | samtools | 1.23.1 |
+| Variant calling | Longshot | 0.4.3 |
+| Filtering | bcftools | 1.23.1 |
+| Annotation | snpEff (GRCh38.99) | 5.3a |
+| Visualization | IGV | - |
 
-A high-impact stop-gained variant was identified in the MEFV gene:
+Variant files are produced in this order: `SRR31325587.vcf` (Longshot output) -> `.chr.vcf` (only the chr16 name changed) -> `.hg38.vcf` (all chromosome names converted to Ensembl style, see `scripts/chr_map.txt`) -> `.ann.vcf` (snpEff annotation).
 
-* Chromosome: chr16
-* Position: 3254353
-* Reference allele: G
-* Alternative allele: A
-* Protein effect: p.Arg239*
-* Impact: HIGH (stop_gained)
+## Repository structure
 
-## Directory Structure
+    scripts/       pipeline commands (MEFV_pipeline.sh) and chromosome name map
+    variants/      VCF files, snpEff outputs, variant lists
+    qc/nanoplot/   NanoPlot quality control reports
+    reports/       analysis reports (EN, TR)
+    figures/       IGV snapshot
+    environment.yml  conda environment
 
-* raw_fastq/
-* reference/
-* qc/
-* alignment/
-* variants/
-* annotation/
-* figures/
-* reports/
-* scripts/
+## Not included in the repository
 
-## Tools Used
+Large files are excluded through `.gitignore`: raw reads (`raw_fastq/`), alignments (`alignment/`) and the reference genome (`reference/`).
 
-* FastQC
-* MultiQC
-* BWA-MEM
-* samtools
-* snpEff
-* IGV
-* Git
-* GitHub
+## Usage
+
+Create the environment:
+
+    conda env create -f environment.yml
+
+Download the reads and place the GRCh38 reference FASTA at `reference/hg38.fa`, then follow `scripts/MEFV_pipeline.sh`.
+EOF
