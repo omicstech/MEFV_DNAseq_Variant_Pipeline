@@ -136,10 +136,11 @@ second pathogenic allele.
 
 ## 6. Limitations
 
-- The analysis is a targeted study performed on a single sample.
+- The analysis is an amplicon (PCR-targeted) sequencing study performed on a single sample.
 - The variant call has not been validated by an orthogonal method (Sanger
   sequencing).
 - The alternate allele fraction is below the expected heterozygous range.
+- Because the data come from PCR-amplified amplicons, the allele fraction may be affected by PCR-related imbalance; this was not tested.
 - Single nucleotide changes in Nanopore data should be evaluated carefully.
 - The gnomAD population frequency and ClinVar/INFEVERS records were not
   queried within the scope of this study.

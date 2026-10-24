@@ -137,10 +137,11 @@ olmaksızın tanı koydurucu değildir.
 
 ## 6. Sınırlılıklar
 
-- Analiz tek örnek üzerinde yürütülmüş hedefli bir çalışmadır.
+- Analiz tek örnek üzerinde yürütülmüş amplikon (PCR ile hedefli) dizilemesine dayanan bir çalışmadır.
 - Varyant çağrısı ortogonal bir yöntemle (Sanger dizileme)
   doğrulanmamıştır.
 - Alternatif alel oranı beklenen heterozigot aralığın altındadır.
+- Veri PCR ile çoğaltılmış amplikonlardan geldiği için alel oranı PCR kaynaklı bir dengesizlikten etkilenmiş olabilir; bu test edilmemiştir.
 - Nanopore verisinde tek nükleotid değişimleri dikkatli
   değerlendirilmelidir.
 - gnomAD popülasyon frekansı ve ClinVar/INFEVERS kayıtları bu çalışma
