@@ -1,4 +1,3 @@
-cat > README.md << 'EOF'
 # MEFV DNA-seq Variant Analysis Pipeline
 
 Variant analysis focused on the MEFV gene from Oxford Nanopore (ONT) long-read sequencing data (sample SRR31325587), aligned to GRCh38.
@@ -48,4 +47,3 @@ Create the environment:
     conda env create -f environment.yml
 
 Download the reads and place the GRCh38 reference FASTA at `reference/hg38.fa`, then follow `scripts/MEFV_pipeline.sh`.
-EOF
