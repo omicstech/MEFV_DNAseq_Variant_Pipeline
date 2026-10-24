@@ -47,3 +47,17 @@ Create the environment:
     conda env create -f environment.yml
 
 Download the reads and place the GRCh38 reference FASTA at `reference/hg38.fa`, then follow `scripts/MEFV_pipeline.sh`.
+## Read quality (NanoPlot)
+
+| Metric | Value |
+|---|---|
+| Number of reads | 1,626 |
+| Total bases | 2.93 Mb |
+| Mean read length | 1,799.7 bp |
+| Median read length | 710 bp |
+| Read length N50 | 3,955 bp |
+| Mean read quality | 11.0 |
+| Reads above Q10 | 1,260 (77.5%) |
+| Reads above Q15 | 23 (1.4%) |
+
+Full output: `qc/nanoplot/NanoStats.txt`. The interactive plots are in `qc/nanoplot/NanoPlot-report.html`; download the file and open it in a browser, because GitHub shows HTML files as source code.
