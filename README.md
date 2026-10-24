@@ -1,7 +1,7 @@
 cat > README.md << 'EOF'
 # MEFV DNA-seq Variant Analysis Pipeline
 
-Targeted variant analysis of the MEFV gene from Oxford Nanopore (ONT) long-read sequencing data (sample SRR31325587), aligned to GRCh38.
+Variant analysis focused on the MEFV gene from Oxford Nanopore (ONT) long-read sequencing data (sample SRR31325587), aligned to GRCh38.
 
 This project is for educational and research purposes only. It cannot be used for clinical diagnosis, screening, or treatment decisions.
 
