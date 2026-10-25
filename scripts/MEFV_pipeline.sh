@@ -44,4 +44,5 @@ awk -F'\t' -v OFS='\t' '
 ' scripts/chr_map.txt variants/$SRR.vcf > variants/$SRR.hg38.vcf
 
 # 7. Anotasyon (snpEff ayrıca snpEff_summary.html ve snpEff_genes.txt üretir)
-(cd variants && snpEff GRCh38.99 $SRR.hg38.vcf > $SRR.ann.vcf)
+# Not: -Xmx8g, Java'ya 8 GB bellek izni verir; varsayilan bellek insan gen haritasi icin yetmiyor.
+(cd variants && snpEff -Xmx8g GRCh38.99 $SRR.hg38.vcf > $SRR.ann.vcf)
