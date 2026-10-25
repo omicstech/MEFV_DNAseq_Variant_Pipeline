@@ -12,9 +12,10 @@ prefetch $SRR -O raw_fastq
 fasterq-dump raw_fastq/$SRR -O raw_fastq
 
 # 2. Kalite kontrol
-NanoPlot --fastq raw_fastq/$SRR.fastq -o qc/nanoplot
+NanoPlot --fastq raw_fastq/$SRR.fastq -t $THREADS -o qc/nanoplot
 
 # 3. Hizalama (Nanopore için map-ont ayarı)
+# Not: ilk analizde hazır hg38.mmi indeksi kullanıldı; burada hg38.fa kullanılıyor, okuma kayıtları birebir aynı çıktı.
 minimap2 -ax map-ont -t $THREADS $REF raw_fastq/$SRR.fastq > alignment/$SRR.sam
 
 # 4. BAM işlemleri
