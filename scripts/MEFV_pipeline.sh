@@ -8,8 +8,10 @@ REF=reference/hg38.fa
 mkdir -p raw_fastq alignment qc/nanoplot variants
 
 # 1. Veri çekme
-prefetch $SRR -O raw_fastq
-fasterq-dump raw_fastq/$SRR -O raw_fastq
+if [ ! -s raw_fastq/$SRR.fastq ]; then
+  prefetch $SRR -O raw_fastq
+  fasterq-dump raw_fastq/$SRR -O raw_fastq
+fi
 
 # 2. Kalite kontrol
 NanoPlot --fastq raw_fastq/$SRR.fastq -t $THREADS -o qc/nanoplot
