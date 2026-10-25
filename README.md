@@ -46,7 +46,13 @@ Create the environment:
 
     conda env create -f environment.yml
 
-Download the reads and place the GRCh38 reference FASTA at `reference/hg38.fa`, then follow `scripts/MEFV_pipeline.sh`.
+Put the GRCh38 reference FASTA at `reference/hg38.fa` (with its `hg38.fa.fai` index), then run the pipeline from the project root:
+
+    bash scripts/MEFV_pipeline.sh
+
+The script downloads the reads from NCBI SRA unless `raw_fastq/SRR31325587.fastq` already exists. snpEff needs about 8 GB of free memory. `scripts/chr_map.txt` matches a GenBank-style reference (chromosome names like `CM000663.2`); a different reference needs a different map.
+
+On a clean clone with the reads already present, the script reproduced all four VCF files of this repository (`.vcf`, `.chr.vcf`, `.hg38.vcf`, `.ann.vcf`) variant line by variant line.
 ## Read quality (NanoPlot)
 
 | Metric | Value |
