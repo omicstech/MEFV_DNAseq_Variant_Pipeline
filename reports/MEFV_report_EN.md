@@ -130,6 +130,8 @@ In addition, FMF mostly shows autosomal recessive inheritance. The presence of
 a single heterozygous allele is not diagnostic without clinical findings and a
 second pathogenic allele.
 
+**Database check (October 2026).** In gnomAD v4.1.2 the variant is seen in 6 of 1,614,206 alleles (frequency about 0.0000037, no homozygotes), so it is very rare. ClinVar holds a one-star record for the variant (VCV004526286; criteria provided, single submitter) classified as a variant of uncertain significance (VUS); the record reports no affected FMF individuals and no functional evidence. In Infevers, only a different change at the same codon is listed (p.Arg239Leu, c.716G>T, exon 2, VUS); no record was found for p.Arg239*. These findings are consistent with the VUS classification.
+
 **Classification: Variant of uncertain significance (VUS)**
 
 ---
@@ -142,8 +144,7 @@ second pathogenic allele.
 - The alternate allele fraction is below the expected heterozygous range.
 - Because the data come from PCR-amplified amplicons, the allele fraction may be affected by PCR-related imbalance; this was not tested.
 - Single nucleotide changes in Nanopore data should be evaluated carefully.
-- The gnomAD population frequency and ClinVar/INFEVERS records were not
-  queried within the scope of this study.
+- Population frequency (gnomAD) and clinical records (ClinVar, Infevers) were queried (see Section 5); no functional evidence was found for this variant.
 - Family segregation analysis was not performed.
 
 ---
@@ -151,8 +152,8 @@ second pathogenic allele.
 ## 7. Recommended Next Steps
 
 1. Validation of the variant by Sanger sequencing
-2. Querying the gnomAD allele frequency
-3. Searching for records in the ClinVar and INFEVERS databases
+2. Querying the gnomAD allele frequency (done, see Section 5)
+3. Searching for records in the ClinVar and INFEVERS databases (done, see Section 5)
 4. Examination of MEFV exon 10 for common pathogenic variants
 5. Family segregation analysis if clinical findings are present
 

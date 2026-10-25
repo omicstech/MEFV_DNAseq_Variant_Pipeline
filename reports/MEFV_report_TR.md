@@ -131,6 +131,8 @@ Ek olarak FMF çoğunlukla otozomal resesif kalıtım gösterir. Tek
 heterozigot alelin varlığı, klinik bulgu ve ikinci bir patojenik alel
 olmaksızın tanı koydurucu değildir.
 
+**Veritabanı kontrolü (Ekim 2026).** gnomAD v4.1.2’de varyant 1.614.206 alelin 6’sında görülmüştür (sıklık yaklaşık 0,0000037, homozigot yok); dolayısıyla çok nadirdir. ClinVar’da varyant için 1 yıldızlı bir kayıt vardır (VCV004526286; kriterleri belirtilmiş tek gönderici) ve belirsiz öneme sahip varyant (VUS) olarak sınıflandırılmıştır; kayıt FMF’li bireylerde bildirilmiş bir olgu ya da işlevsel bir kanıt belirtmemektedir. Infevers’te aynı kodonda yalnızca farklı bir değişim kayıtlıdır (p.Arg239Leu, c.716G>T, ekzon 2, VUS); p.Arg239* için kayıt bulunamamıştır. Bu bulgular VUS sınıflandırmasıyla uyumludur.
+
 **Sınıflandırma: Belirsiz öneme sahip varyant (VUS)**
 
 ---
@@ -144,8 +146,7 @@ olmaksızın tanı koydurucu değildir.
 - Veri PCR ile çoğaltılmış amplikonlardan geldiği için alel oranı PCR kaynaklı bir dengesizlikten etkilenmiş olabilir; bu test edilmemiştir.
 - Nanopore verisinde tek nükleotid değişimleri dikkatli
   değerlendirilmelidir.
-- gnomAD popülasyon frekansı ve ClinVar/INFEVERS kayıtları bu çalışma
-  kapsamında sorgulanmamıştır.
+- Popülasyon sıklığı (gnomAD) ve klinik kayıtlar (ClinVar, Infevers) sorgulanmıştır (bkz. Bölüm 5); bu varyant için işlevsel bir kanıt bulunamamıştır.
 - Aile segregasyon analizi yapılmamıştır.
 
 ---
@@ -153,8 +154,8 @@ olmaksızın tanı koydurucu değildir.
 ## 7. Önerilen Sonraki Adımlar
 
 1. Varyantın Sanger dizileme ile doğrulanması
-2. gnomAD alel frekansının sorgulanması
-3. ClinVar ve INFEVERS veritabanlarında kayıt aranması
+2. gnomAD alel frekansının sorgulanması (yapıldı, bkz. Bölüm 5)
+3. ClinVar ve INFEVERS veritabanlarında kayıt aranması (yapıldı, bkz. Bölüm 5)
 4. MEFV ekzon 10'un yaygın patojenik varyantlar açısından incelenmesi
 5. Klinik bulgu varlığında aile segregasyon analizi
 
